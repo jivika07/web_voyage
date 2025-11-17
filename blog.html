@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoyageFlow - Destinations</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top, #1d4ed8 0%, #020617 45%, #000 100%);
+            min-height: 100vh;
+            color: #e5e7eb;
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(2,6,23,0.95);
+            backdrop-filter: blur(10px);
+            padding: 14px 0;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.8);
+            z-index: 100;
+            border-bottom: 1px solid rgba(31,41,55,0.9);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-brand {
+            font-size: 1.4em;
+            font-weight: 700;
+            background: linear-gradient(135deg,#3b82f6,#60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+            transition: all 0.25s;
+        }
+
+        .nav-links a:hover {
+            border-color: rgba(59,130,246,0.8);
+            background: rgba(15,23,42,0.95);
+        }
+
+        .nav-secondary {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .blog-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 70px 20px 10px;
+            scroll-margin-top: 90px;
+        }
+
+        .blog-card {
+            background: radial-gradient(circle at top left, rgba(37,99,235,0.25), rgba(15,23,42,0.97));
+            border-radius: 22px;
+            padding: 32px 28px;
+            margin-bottom: 36px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.85);
+            border: 1px solid rgba(31,41,55,0.9);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 26px 70px rgba(0,0,0,0.95);
+        }
+
+        .blog-card h2 {
+            font-size: 1.9em;
+            margin-bottom: 14px;
+        }
+
+        .blog-card h2 span {
+            font-size: 1.1rem;
+        }
+
+        .blog-card p {
+            color: #cbd5f5;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg,#1d4ed8,#38bdf8);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .next-btn-container {
+            text-align: center;
+            padding: 40px 20px 60px;
+        }
+
+        .next-btn {
+            padding: 16px 60px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg,#1d4ed8,#3b82f6);
+            color: #f9fafb;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 14px 45px rgba(37,99,235,0.9);
+            transition: all 0.25s;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 18px 60px rgba(37,99,235,1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="nav-content">
+            <div>
+                <div class="nav-brand">VoyageFlow</div>
+                <div class="nav-secondary">Browse destinations before building your trip.</div>
+            </div>
+            <div class="nav-links">
+                <a href="#paris">Paris</a>
+                <a href="#tokyo">Tokyo</a>
+                <a href="#rome">Rome</a>
+                <a href="#bali">Bali</a>
+                <a href="#maldives">Maldives</a>
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="paris" class="blog-section">
+        <div class="blog-card">
+            <h2>🗼 Paris, France</h2>
+            <p>The <span class="highlight">City of Light</span> glows even against a midnight sky. Cafés spill warm light onto cobblestone streets, the Eiffel Tower shimmers above the skyline, and the scent of fresh pastries drifts from every corner. Paris is where art, romance, and timeless architecture blend into one unforgettable frame.</p>
+        </div>
+    </div>
+
+    <div id="tokyo" class="blog-section">
+        <div class="blog-card">
+            <h2>🏯 Tokyo, Japan</h2>
+            <p>A city of <span class="highlight">neon and tradition</span>, Tokyo pulses with energy 24/7. Shibuya Crossing is a choreography of people and lights, while quiet shrines sit hidden between skyscrapers. From vending machines that serve everything to bullet trains that run like clockwork, Tokyo is a glimpse into the future with a heart rooted in history.</p>
+        </div>
+    </div>
+
+    <div id="rome" class="blog-section">
+        <div class="blog-card">
+            <h2>🏛️ Rome, Italy</h2>
+            <p>The <span class="highlight">Eternal City</span> feels like walking through a living time capsule. Ancient ruins sit beside bustling piazzas, and every turn makes history feel close enough to touch. Gelato in one hand, camera in the other, you wander past fountains, cathedrals, and the echoes of the Roman Empire.</p>
+        </div>
+    </div>
+
+    <div id="bali" class="blog-section">
+        <div class="blog-card">
+            <h2>🌴 Bali, Indonesia</h2>
+            <p>Bali is a <span class="highlight">tropical temple of calm</span>. Sunlight falls over rice terraces, incense hangs in temple courtyards, and waves roll onto golden beaches. Whether you're surfing, meditating, or simply watching the sky shift colors at sunset, Bali reminds you what it feels like to slow down.</p>
+        </div>
+    </div>
+
+    <div id="maldives" class="blog-section">
+        <div class="blog-card">
+            <h2>🏝️ Maldives</h2>
+            <p>A chain of islands floating on turquoise water, the Maldives is the definition of <span class="highlight">overwater luxury</span>. Wooden decks lead to crystal seas, coral reefs shimmer below, and at night, bioluminescent waves glow beneath a sky full of stars. It feels less like a destination and more like a dream.</p>
+        </div>
+    </div>
+
+    <div class="next-btn-container">
+        <button class="next-btn" onclick="window.location.href='calculator.html'">
+            Plan Your Trip →
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.nav-links a[href^="#"]')) {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

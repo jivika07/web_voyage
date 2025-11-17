@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoyageFlow - Trip Builder</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #1d4ed8 0%, #020617 45%, #000 100%);
+            min-height: 100vh;
+            color: #e5e7eb;
+        }
+
+        .calculator-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 160px;
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .calculator-header h1 {
+            font-size: 2.4rem;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .option-section {
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(59,130,246,0.4);
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        .option-section h3 {
+            margin-bottom: 15px;
+            border-left: 3px solid #3b82f6;
+            padding-left: 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: rgba(2,6,23,0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+
+        .option-item input {
+            width: 22px;
+            height: 22px;
+            margin-right: 14px;
+        }
+
+        .option-details {
+            flex: 1;
+        }
+
+        .option-price {
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        /* Price Fixed Bar */
+        .price-display {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(2,6,23,0.95);
+            border-top: 1px solid rgba(59,130,246,0.3);
+            padding: 20px 0;
+        }
+
+        .price-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .confirm-btn {
+            padding: 12px 40px;
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            border: none;
+            border-radius: 999px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(59,130,246,0.7);
+        }
+
+        .confirm-btn:hover {
+            transform: scale(1.03);
+        }
+
+        /* Confirmation Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(15,23,42,1);
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid rgba(59,130,246,0.4);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            width: 90%;
+            max-width: 360px;
+        }
+
+        .checkmark {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #22c55e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        
+        <div class="calculator-header">
+            <h1>Build Your Dream Trip</h1>
+        </div>
+
+        <div class="calculator-grid">
+            
+            <!-- Travel Options -->
+            <div class="option-section">
+                <h3>✈️ Travel Options</h3>
+
+                <label class="option-item">
+                    <input type="checkbox" value="500" class="calc-option">
+                    <div class="option-details">
+                        <div>Economy Flight</div>
+                    </div>
+                    <div class="option-price">$500</div>
+                </label>
+
+                <label class="option-item">
+                    <input type="checkbox" value="1500" class="calc-option">
+                    <div class="option-details">
+                        <div>Business Class</div>
+                    </div>
+                    <div class="option-price">$1500</div>
+                </label>
+
+                <label class="option-item">
+                    <input type="checkbox" value="3000" class="calc-option">
+                    <div class="option-details">
+                        <div>First Class</div>
+                    </div>
+                    <div class="option-price">$3000</div>
+                </label>
+
+            </div>
+
+            <!-- Accommodation -->
+            <div class="option-section">
+                <h3>🏨 Accommodation</h3>
+
+                <label class="option-item">
+                    <input type="checkbox" value="200" class="calc-option">
+                    <div class="option-details">Budget Hostel</div>
+                    <div class="option-price">$200</div>
+                </label>
+
+                <label class="option-item">
+                    <input type="checkbox" value="800" class="calc-option">
+                    <div class="option-details">4-Star Hotel</div>
+                    <div class="option-price">$800</div>
+                </label>
+
+                <label class="option-item">
+                    <input type="checkbox" value="2000" class="calc-option">
+                    <div class="option-details">Luxury Resort</div>
+                    <div class="option-price">$2000</div>
+                </label>
+            </div>
+
+            <!-- Food -->
+            <div class="option-section">
+                <h3>🍽️ Food Packages</h3>
+
+                <label class="option-item">
+                    <input type="checkbox" value="150" class="calc-option">
+                    <div class="option-details">Local Food Tour</div>
+                    <div class="option-price">$150</div>
+                </label>
+
+                <label class="option-item">
+                    <input type="checkbox" value="400" class="calc-option">
+                    <div class="option-details">Restaurant Package</div>
+                    <div class="option-price">$400</div>
+                </label>
+
+                <label class="option-item">
+                    <input type="checkbox" value="1000" class="calc-option">
+                    <div class="option-details">Fine Dining</div>
+                    <div class="option-price">$1000</div>
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Price Footer -->
+    <div class="price-display">
+        <div class="price-content">
+            <div class="total-amount">$<span id="totalPrice">0</span></div>
+            <button class="confirm-btn" onclick="showModal()">Confirm Booking</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="checkmark">🎉</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Total: $<span id="finalPrice">0</span></p>
+            <p>Redirecting...</p>
+        </div>
+    </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll(".calc-option");
+        const totalPriceEl = document.getElementById("totalPrice");
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener("change", updateTotal);
+        });
+
+        function updateTotal() {
+            let total = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) total += parseInt(cb.value);
+            });
+            totalPriceEl.textContent = total;
+        }
+
+        function showModal() {
+            const total = totalPriceEl.textContent;
+            document.getElementById("finalPrice").textContent = total;
+
+            document.getElementById("confirmModal").classList.add("show");
+
+            setTimeout(() => {
+                window.location.href = "thankyou.html";
+            }, 2200);
+        }
+    </script>
+
+</body>
+</html>
